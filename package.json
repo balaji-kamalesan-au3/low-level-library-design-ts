@@ -1,0 +1,15 @@
+{
+  "name": "coach-pi-low-level-design",
+  "version": "1.0.0",
+  "description": "Low level design project",
+  "main": "built/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start" : "node built/index.js"
+  },
+  "author": "Balaji Kamalesan",
+  "license": "ISC",
+  "dependencies": {
+    "typescript": "^4.4.2"
+  }
+}

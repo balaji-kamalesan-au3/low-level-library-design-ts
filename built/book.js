@@ -8,6 +8,8 @@ var Book = /** @class */ (function () {
         this.author = details.author;
         this.genre = details.genre;
         this.id = String(Math.random() * 100) + String(new Date);
+        this.available = details.available | 0;
+        this.rentedOut = details.rentedOut | 0;
     }
     Object.defineProperty(Book.prototype, "setName", {
         set: function (name) {
@@ -72,6 +74,27 @@ var Book = /** @class */ (function () {
         enumerable: false,
         configurable: true
     });
+    Object.defineProperty(Book.prototype, "getAvailability", {
+        get: function () {
+            return this.available;
+        },
+        enumerable: false,
+        configurable: true
+    });
+    Book.prototype.rentOutBook = function () {
+        if (this.getAvailability > 0) {
+            this.available--;
+            this.rentedOut++;
+            return true;
+        }
+        else {
+            throw new Error("Book is Not Available");
+        }
+    };
+    Book.prototype.collectBook = function () {
+        this.available++;
+        this.rentedOut--;
+    };
     return Book;
 }());
 exports.Book = Book;
